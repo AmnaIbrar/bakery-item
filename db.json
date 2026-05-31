@@ -1,0 +1,156 @@
+{
+  "products": [
+    {
+      "id": "1",
+      "name": "Chocolate Fudge Cake",
+      "category": "cakes",
+      "price": 1500
+    },
+    {
+      "id": "2",
+      "name": "Red Velvet Cake",
+      "category": "cakes",
+      "price": 1800
+    },
+    {
+      "id": "3",
+      "name": "Pineapple Cream Cake",
+      "category": "cakes",
+      "price": 1300
+    },
+    {
+      "id": "4",
+      "name": "Black Forest Cake",
+      "category": "cakes",
+      "price": 1400
+    },
+    {
+      "id": "5",
+      "name": "Lotus Cheesecake",
+      "category": "cakes",
+      "price": 2200
+    },
+    {
+      "id": "6",
+      "name": "Nutella Crunch Cake",
+      "category": "cakes",
+      "price": 2000
+    },
+    {
+      "id": "7",
+      "name": "Vanilla Caramel Cake",
+      "category": "cakes",
+      "price": 1200
+    },
+    {
+      "id": "8",
+      "name": "Coffee Mocha Cake",
+      "category": "cakes",
+      "price": 1600
+    },
+    {
+      "id": "9",
+      "name": "Strawberry Glaze Cake",
+      "category": "cakes",
+      "price": 1500
+    },
+    {
+      "id": "10",
+      "name": "Mango Delight Cake",
+      "category": "cakes",
+      "price": 1700
+    },
+    {
+      "id": "11",
+      "name": "Dark Chocolate Truffles",
+      "category": "chocolates",
+      "price": 650
+    },
+    {
+      "id": "12",
+      "name": "Milk Chocolate Bar Premium",
+      "category": "chocolates",
+      "price": 350
+    },
+    {
+      "id": "13",
+      "name": "Hazelnut Pralines Pack",
+      "category": "chocolates",
+      "price": 800
+    },
+    {
+      "id": "14",
+      "name": "White Caramel Block",
+      "category": "chocolates",
+      "price": 400
+    },
+    {
+      "id": "15",
+      "name": "Assorted Luxury Bonbons",
+      "category": "chocolates",
+      "price": 1200
+    },
+    {
+      "id": "16",
+      "name": "Chocolate Chip Cookies",
+      "category": "cookies",
+      "price": 350
+    },
+    {
+      "id": "17",
+      "name": "Premium Almond Biscotti",
+      "category": "cookies",
+      "price": 400
+    },
+    {
+      "id": "18",
+      "name": "Oatmeal Raisin Cookies",
+      "category": "cookies",
+      "price": 320
+    },
+    {
+      "id": "19",
+      "name": "Butter Shortbread Cookies",
+      "category": "cookies",
+      "price": 450
+    },
+    {
+      "id": "20",
+      "name": "Red Velvet Crinkle Cookies",
+      "category": "cookies",
+      "price": 380
+    },
+    {
+      "id": "21",
+      "name": "Premium Milky Bread",
+      "category": "breads",
+      "price": 1200
+    },
+    {
+      "id": "22",
+      "name": "Healthy Brown Bread",
+      "category": "breads",
+      "price": 1400
+    },
+    {
+      "id": "23",
+      "name": "Garlic Cheese Bread",
+      "category": "breads",
+      "price": 180
+    },
+    {
+      "id": "24",
+      "name": "Multi-Grain Bread",
+      "category": "breads",
+      "price": 160
+    },
+    {
+      "id": "25",
+      "name": "French Baguette",
+      "category": "breads",
+      "price": 150
+    }
+  ],
+  "orders": []
+ 
+}

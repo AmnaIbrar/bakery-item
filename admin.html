@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bakery Management - Admin Panel</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body { background-color: #f4f5f6; }
+        .admin-header { background: #3d2314; color: #ffffff; padding: 20px; border-radius: 12px; margin-bottom: 30px; text-align: center;}
+        .admin-header h1 { color: #ffffff; font-size: 2.2rem; }
+        .admin-badge { background: #8e8e93; color: white; padding: 4px 12px; font-size: 0.8rem; border-radius: 12px; font-weight: bold; vertical-align: middle; }
+        .stats-row { display: flex; justify-content: space-between; gap: 15px; margin-bottom: 30px; }
+        .stat-card { background: white; border: 1px solid #e5e5ea; padding: 20px; border-radius: 10px; flex: 1; text-align: center; box-shadow: 0 2px 5px rgba(0,0,0,0.02); transition: transform 0.2s; }
+        .stat-card:hover { transform: translateY(-2px); }
+        .stat-card h3 { color: #7f5539; font-size: 1.8rem; margin-bottom: 5px; }
+        .stat-card p { color: #666; font-size: 0.9rem; font-weight: 600; }
+        
+        .category-row-title { color: #3d2314; margin-bottom: 15px; font-size: 1.4rem; font-weight: bold; }
+        .categories-grid { display: flex; gap: 15px; margin-bottom: 35px; flex-wrap: wrap; }
+        .category-box { background: #ffffff; border: 1px solid #e5e5ea; padding: 15px; border-radius: 8px; flex: 1; min-width: 130px; text-align: center; box-shadow: 0 2px 4px rgba(0,0,0,0.01); transition: all 0.2s; }
+        .category-box:hover { background: #7f5539; color: white; border-color: #7f5539; }
+        .category-box:hover h3, .category-box:hover span { color: white !important; }
+        .category-box h3 { color: #3d2314; font-size: 1.5rem; margin-bottom: 2px; }
+        .category-box span { color: #666; font-size: 0.85rem; font-weight: bold; }
+
+        .admin-table-container { background: white; border: 1px solid #e5e5ea; border-radius: 10px; padding: 20px; box-shadow: 0 2px 5px rgba(0,0,0,0.02); margin-bottom: 40px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+        th, td { padding: 12px; text-align: left; border-bottom: 1px solid #e5e5ea; }
+        th { background-color: #f7f4f2; color: #5c3a21; font-weight: 700; }
+        .action-btn { padding: 6px 12px; border: none; border-radius: 4px; cursor: pointer; font-weight: bold; font-size: 0.85rem; margin-right: 5px; }
+        .edit-btn { background-color: #e5e5ea; color: #3d2314; border: 1px solid #d1d1d6; }
+        .edit-btn:hover { background-color: #d1d1d6; }
+        .del-btn { background-color: #e63946; color: white; }
+        .del-btn:hover { background-color: #c92a36; }
+        .nav-links { text-align: left; margin-bottom: 15px; }
+        .nav-links a { color: #ffffff; text-decoration: none; font-weight: bold; font-size: 0.9rem; border: 1px solid #ffffff; padding: 5px 12px; border-radius: 20px; }
+        .nav-links a:hover { background: white; color: #3d2314; }
+    </style>
+</head>
+<body>
+
+    <div class="bakery-container">
+        
+        <header class="admin-header">
+            <div class="nav-links">
+                <a href="index.html">⬅ View Live Store (User Panel)</a>
+            </div>
+            <h1>BAKERY MANAGEMENT CONTROL <span class="admin-badge">ADMIN</span></h1>
+            <p style="color: #dfd5cf; margin-top: 5px;">Manage Inventory Products, Real-time Statistics, and CRUD Controls</p>
+        </header>
+
+        <main>
+            <section class="stats-row">
+                <div class="stat-card" id="stat-total-items-card" style="cursor: pointer;">
+                    <h3 id="stat-total-items">0</h3>
+                    <p>Total Menu Products </p>
+                </div>
+                <div class="stat-card">
+                    <h3 id="stat-total-orders">0</h3>
+                    <p>Total Orders Received</p>
+                </div>
+                <div class="stat-card">
+                    <h3 id="stat-total-sales">Rs. 0</h3>
+                    <p>Total Projected Revenue</p>
+                </div>
+            </section>
+
+            <h3 class="category-row-title">Filter Inventory by Category</h3>
+            <section class="categories-grid">
+                <div class="category-box" data-category="cakes">
+                    <h3 id="countCakes">0</h3>
+                    <span>Cakes</span>
+                </div>
+                <div class="category-box" data-category="chocolates">
+                    <h3 id="countChocolates">0</h3>
+                    <span>Chocolates</span>
+                </div>
+                <div class="category-box" data-category="cookies">
+                    <h3 id="countCookies">0</h3>
+                    <span>Cookies</span>
+                </div>
+                <div class="category-box" data-category="breads">
+                    <h3 id="countBreads">0</h3>
+                    <span>Breads</span>
+                </div>
+            </section>
+
+            <section class="form-card-structure" style="margin-bottom: 30px;">
+                <h2 id="form-title" style="color: #3d2314; margin-bottom: 15px;">Add New Bakery Product</h2>
+                <form id="admin-product-form">
+                    <input type="hidden" id="product-id">
+                    
+                    <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+                        <div class="input-group" style="flex: 2; min-width: 200px;">
+                            <label for="prod-name">Product Name</label>
+                            <input type="text" id="prod-name" required placeholder="e.g., Belgian Chocolate Muffin">
+                        </div>
+                        <div class="input-group" style="flex: 1; min-width: 150px;">
+                            <label for="prod-category">Category</label>
+                            <select id="prod-category" style="width: 100%; padding: 11px; border: 1px solid #d1d1d6; border-radius: 5px;" required>
+                                <option value="cakes">Cakes</option>
+                                <option value="chocolates">Chocolates</option>
+                                <option value="cookies">Cookies</option>
+                                <option value="breads">Breads</option>
+                            </select>
+                        </div>
+                        <div class="input-group" style="flex: 1; min-width: 120px;">
+                            <label for="prod-price">Price (Rs.)</label>
+                            <input type="number" id="prod-price" required placeholder="Price">
+                        </div>
+                    </div>
+                    <button type="submit" id="submit-form-btn" class="submit-action-btn" style="margin-top: 10px; max-width: 200px;"> Save Product</button>
+                    <button type="button" id="cancel-edit-btn" class="back-btn" style="display: none; margin-left: 15px;">Cancel Edit</button>
+                </form>
+            </section>
+
+            <section class="admin-table-container">
+                <h2 style="color: #3d2314;">Current Active Inventory</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Product Name</th>
+                            <th>Category</th>
+                            <th>Price</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="admin-table-body">
+                    </tbody>
+                </table>
+            </section>
+        </main>
+    </div>
+
+    <script src="admin.js"></script>
+</body>
+</html>

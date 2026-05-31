@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bakery Products</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="bakery-container">
+        
+        <header class="bakery-header">
+            <div class="top-row">
+                <span class="brand-title">Golden Crust | Luxury Bakery</span>
+                <button id="cart-toggle-btn" class="basket-btn">🛒 Your Shopping Cart: <span id="cart-count">0</span> items</button>
+            </div>
+            
+            <h1 class="main-heading">WELCOME TO THE GOLDEN CRUST</h1>
+            <p class="sub-heading">Experience the Gold Standard of Baking</p>
+            
+            <div class="category-cards-layout">
+                <div class="category-box active" data-category="cakes">
+                    <span class="box-icon">🍰</span>
+                    <span class="box-text">CAKES</span>
+                </div>
+                <div class="category-box" data-category="chocolates">
+                    <span class="box-icon">🍫</span>
+                    <span class="box-text">CHOCOLATES</span>
+                </div>
+                <div class="category-box" data-category="cookies">
+                    <span class="box-icon">🍪</span>
+                    <span class="box-text">COOKIES</span>
+                </div>
+                <div class="category-box" data-category="breads">
+                    <span class="box-icon">🍞</span>
+                    <span class="box-text">BREADS</span>
+                </div>
+            </div>
+            
+            <hr class="section-divider">
+        </header>
+
+        <main>
+            <section id="menu-section">
+                <div class="products-grid" id="products-grid">
+                    </div>
+            </section>
+
+            <section id="checkout-section" class="checkout-layout" style="display: none;">
+                <button id="back-to-menu-btn" class="back-btn">⬅ Back to Categories</button>
+                <div class="form-card-structure">
+                    <h2>Confirm Your Order</h2>
+                    <form id="checkout-form">
+                        <div class="input-group">
+         <label for="name">Full Name</label>
+        <input type="text" id="name" required placeholder="Enter your name">
+    </div>
+    <div class="input-group">
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" required placeholder="03xx-xxxxxxx">
+    </div>
+    <div class="input-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" required placeholder="name@email.com">
+    </div>
+    <div class="input-group">
+        <label for="date">Preferred Delivery Date</label>
+        <input type="date" id="date" required>
+    </div>
+    <div class="input-group">
+        <label for="address">Delivery Address</label>
+        <textarea id="address" required placeholder="Enter your complete address"></textarea>
+    </div>
+    <button type="submit" class="submit-action-btn">Confirm Final Order</button>
+</form>
+                </div>
+            </section>
+
+            <div id="cart-content" class="basket-list-container" style="display: none;">
+                <h3>Your Selected Items</h3>
+                <div id="cart-items">
+                    <p>Your cart is empty.</p>
+                </div>
+                <div class="basket-total">
+                    <h4>Total Price: Rs. <span id="total-price">0</span></h4>
+                    <button id="go-to-checkout-btn" class="final-submit-btn">Proceed to Checkout ➔</button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
