@@ -138,6 +138,18 @@ adminProductForm.addEventListener("submit", async (e) => {
             if (!response.ok) throw new Error("Update failed");
             alert("Product updated successfully!");
         } else {
+            // AAPKA PADHAWAYA HUA METHOD: Max ID dhoond kar +1 karna
+            let maxId = 0;
+            allProducts.forEach(p => {
+                let currentId = parseInt(p.id);
+                if (!isNaN(currentId) && currentId > maxId) {
+                    maxId = currentId;
+                }
+            });
+            
+            // Nayi ID automatic (+1) set ho rahi hai
+            productData.id = String(maxId + 1); 
+
             const response = await fetch(PRODUCTS_URL, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
